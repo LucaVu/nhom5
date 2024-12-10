@@ -1,0 +1,211 @@
+Terminal là một công cụ dòng lệnh cho phép người dùng tương tác với hệ điều hành thông qua các lệnh văn bản. Nó rất hữu ích cho lập trình viên và quản trị viên hệ thống để thực hiện các tác vụ nhanh chóng và hiệu quả.
+
+Quản lý mã nguồn với GIT là một phần quan trọng trong phát triển phần mềm. GIT là một hệ thống quản lý phiên bản phân tán, cho phép nhiều người làm việc trên cùng một dự án mà không làm mất dữ liệu của nhau. Dưới đây là một số khái niệm cơ bản về GIT:
+
+1. **Repository (Repo)**: Là nơi lưu trữ mã nguồn của dự án. Có thể là một repo cục bộ trên máy tính của bạn hoặc một repo từ xa trên các dịch vụ như GitHub, GitLab.
+
+2. **Commit**: Là hành động lưu lại các thay đổi trong mã nguồn. Mỗi commit sẽ có một mã hash duy nhất và có thể kèm theo thông điệp mô tả.
+
+3. **Branch**: Là một nhánh trong repo, cho phép bạn phát triển tính năng mới mà không ảnh hưởng đến mã nguồn chính (nhánh chính thường là `main` hoặc `master`).
+
+4. **Merge**: Là hành động kết hợp các thay đổi từ một nhánh vào nhánh khác.
+
+5. **Pull và Push**:
+   - **Pull**: Tải về các thay đổi từ repo từ xa về repo cục bộ.
+   - **Push**: Đẩy các thay đổi từ repo cục bộ lên repo từ xa.
+
+6. **Clone**: Tạo một bản sao của repo từ xa về máy tính của bạn.
+
+7. **Status**: Kiểm tra trạng thái của repo, xem có thay đổi nào chưa được commit hay không.
+
+8. **Log**: Xem lịch sử các commit đã thực hiện.
+
+GIT giúp theo dõi lịch sử thay đổi, làm việc nhóm hiệu quả và dễ dàng quay lại các phiên bản trước đó của mã nguồn.
+
+--------------------------------------------------------------------------------------------------------
+
+### Hướng dẫn quản lý mã nguồn với GIT
+
+#### Tạo tài khoản GIT và cài đặt GIT
+1. Truy cập vào [GitHub](https://github.com/) hoặc [GitLab](https://gitlab.com/).
+2. Nhấn vào nút "Sign up" để tạo tài khoản mới.
+3. Điền thông tin cần thiết và xác nhận tài khoản qua email.
+4. Truy cập vào trang [GIT Downloads](https://git-scm.com/downloads).
+5. Chọn phiên bản phù hợp với hệ điều hành của bạn (Windows, macOS, Linux).
+6. Tải và làm theo hướng dẫn cài đặt.
+
+#### Tạo project trên web và cài đặt plugin cho VSCode
+1. Đăng nhập vào tài khoản GIT của bạn (GitHub hoặc GitLab).
+2. Nhấn vào nút "New Repository" hoặc "Create Project".
+3. Điền tên repo, mô tả và chọn chế độ (public/private).
+4. Nhấn "Create Repository".
+5. Mở Visual Studio Code.
+6. Vào phần Extensions (hoặc nhấn `Ctrl + Shift + X`).
+7. Tìm kiếm "Git" và cài đặt các extension cần thiết như "GitLens" để hỗ trợ quản lý GIT.
+8. Cài đặt thêm các extension như "Git Graph", "GitHub Pull Requests and Issues", "GitHub Codespaces".
+
+#### Làm việc với mã nguồn trong VSCode
+1. Mở VSCode.
+2. Chọn "File" > "Open Folder" và chọn thư mục chứa mã nguồn của bạn.
+3. VSCode sẽ tự động nhận diện thư mục GIT nếu có file `.git` trong thư mục đó.
+4. Mở terminal trong VSCode bằng cách nhấn `` Ctrl + ` ``.
+5. Chuyển đến thư mục dự án bằng lệnh `cd đường/dẫn/đến/thư/mục`.
+6. Nếu thư mục chưa được khởi tạo là một repo GIT, chạy lệnh `git init`.
+7. Kết nối với repo từ xa bằng lệnh:
+   ```bash
+   git remote add origin git@github.com:username/repo.git
+   ```
+   hoặc
+   ```bash
+   git remote add origin https://github.com/username/repo.git
+   ```
+8. Để tải về các file từ repo trên web, sử dụng lệnh:
+   ```bash
+   git pull origin main
+   ```
+
+#### Thực hiện thay đổi và quản lý mã nguồn
+1. Sau khi thực hiện thay đổi trong VSCode, bạn cần thêm và commit các thay đổi:
+   ```bash
+   git add .
+   git commit -m "Mô tả thay đổi"
+   ```
+2. Để cập nhật repo trên web với các thay đổi từ desktop, sử dụng lệnh:
+   ```bash
+   git push origin main
+   ```
+
+#### Các lệnh cơ bản trong quản lý mã nguồn với GIT
+1. **Tạo nhánh mới**:
+   ```bash
+   git checkout -b ten-nhanh-moi
+   ```
+2. **Chuyển đổi giữa các nhánh**:
+   ```bash
+   git checkout ten-nhanh
+   ```
+3. **Kiểm tra trạng thái repo**:
+   ```bash
+   git status
+   ```
+4. **Thêm thay đổi vào staging area**:
+   ```bash
+   git add .
+   ```
+5. **Lưu lại các thay đổi**:
+   ```bash
+   git commit -m "Mô tả thay đổi"
+   ```
+6. **Tải về các thay đổi từ repo từ xa**:
+   ```bash
+   git pull origin main
+   ```
+7. **Đẩy các thay đổi từ repo cục bộ lên repo từ xa**:
+   ```bash
+   git push origin main
+   ```
+8. **Xem lịch sử commit**:
+   ```bash
+   git log
+   ```
+9. **Kết hợp các nhánh**:
+   ```bash
+   git checkout main
+   git merge ten-nhanh
+   ```
+
+### Quy trình làm việc với GIT
+1. **Khởi tạo repo**: Sử dụng `git init` để khởi tạo một repo mới.
+2. **Tạo nhánh mới**: Sử dụng lệnh `git checkout -b ten-nhanh-moi` để tạo nhánh mới cho tính năng hoặc sửa lỗi.
+3. **Thực hiện thay đổi**: Thực hiện các thay đổi trong mã nguồn.
+4. **Kiểm tra trạng thái**: Sử dụng `git status` để kiểm tra các thay đổi chưa được commit.
+5. **Thêm thay đổi**: Sử dụng `git add .` để thêm tất cả các thay đổi vào staging area.
+6. **Commit thay đổi**: Sử dụng `git commit -m "Mô tả thay đổi"` để lưu lại các thay đổi.
+7. **Đẩy thay đổi lên repo từ xa**: Sử dụng `git push origin main` để cập nhật repo trên web.
+8. **Tải về thay đổi từ repo từ xa**: Sử dụng `git pull origin main` để tải về các thay đổi mới nhất.
+9. **Kết hợp các nhánh**: Sử dụng `git merge ten-nhanh` để kết hợp các thay đổi từ nhánh mới vào nhánh chính.
+
+#### Mời nhiều người tham gia dự án
+1. Truy cập vào repo của bạn trên GitHub hoặc GitLab.
+2. Vào phần "Settings" > "Manage Access" (trên GitHub) ho���c "Members" (trên GitLab).
+3. Nhập tên người dùng hoặc email của người mà bạn muốn mời và chọn quyền truy cập (Admin, Developer, Viewer).
+4. Nhấn "Invite".
+
+#### Quản lý mã nguồn và tải về file từ các thành viên
+1. **Tải về mã nguồn từ repo**:
+   - **Sử dụng SSH**:
+     1. Đảm bảo bạn đã thiết lập SSH key trên GitHub hoặc GitLab.
+     2. Truy cập vào repo của bạn trên GitHub hoặc GitLab.
+     3. Nhấn vào nút "Code" và chọn "SSH" để sao chép URL.
+     4. Mở terminal và chạy lệnh sau để clone repo:
+        ```bash
+        git clone git@github.com:username/repo.git
+        ```
+   - **Sử dụng HTTPS**:
+     1. Truy cập vào repo của bạn trên GitHub hoặc GitLab.
+     2. Nhấn vào nút "Code" và chọn "HTTPS" để sao chép URL.
+     3. Mở terminal và chạy lệnh sau để clone repo:
+        ```bash
+        git clone https://github.com/username/repo.git
+        ```
+
+2. **Xem các file đã được thêm vào**:
+   1. Sau khi clone repo, bạn có thể mở thư mục repo trên máy tính của mình.
+   2. Sử dụng lệnh `git log` để xem lịch sử commit và biết ai đã thêm file nào.
+   3. Để xem các thay đổi cụ thể trong một commit, sử dụng:
+      ```bash
+      git show <commit-hash>
+      ```
+
+3. **Cập nhật mã nguồn từ repo**:
+   - Để tải về các thay đổi mới nhất từ repo từ xa, sử dụng:
+     ```bash
+     git pull origin main
+     ```
+
+--------------------------------------------------------------------------------------------------------
+
+### Hướng dẫn làm việc nhóm với GIT
+
+1. **Tạo 1 Repository**.
+2. **Thêm các thành viên vào Repo đó**.
+3. **Mời thành viên tạo 1 nhánh và push nhánh**.
+   - **Ví dụ**: Giả sử bạn có một repo tên là `project-x`.
+   - Các thành viên có thể tạo nhánh mới với tên là `feature-1` bằng lệnh:
+     ```bash
+     git checkout -b feature-1
+     ```
+   - Sau khi thực hiện thay đổi, họ có thể thêm và commit các thay đổi:
+     ```bash
+     git add .
+     git commit -m "Thêm tính năng 1"
+     ```
+   - Cuối cùng, họ push nhánh lên repo:
+     ```bash
+     git push origin feature-1
+     ```
+
+4. **1 người leader merge nhánh của các thành viên**.
+   - **Ví dụ**: Người leader muốn merge nhánh `feature-1` vào nhánh chính `main`.
+   - Người leader sẽ chuyển sang nhánh `main`:
+     ```bash
+     git checkout main
+     ```
+   - Sau đó, họ sẽ merge nhánh `feature-1`:
+     ```bash
+     git merge feature-1
+     ```
+   - Nếu có conflict, người leader sẽ cần giải quyết conflict trong file bị ảnh hưởng, sau đó commit lại:
+     ```bash
+     git add .
+     git commit -m "Giải quyết conflict"
+     ```
+
+5. **Thử toàn bộ thành viên code chung 1 file 1 dòng để test conflict**:
+   - Tất cả các thành viên cùng mở 1 file (ví dụ: `index.html`) và thực hiện thay đổi ở cùng 1 dòng.
+   - Sau đó, mỗi người sẽ push nhánh của mình lên repo.
+   - Khi người leader cố gắng merge các nhánh, sẽ xảy ra conflict, và họ sẽ cần giải quyết conflict trước khi hoàn tất merge.
+
+### Lưu ý
+- Đảm bảo rằng tất cả các thành viên đã cài đặt Git và có quyền truy cập vào repo.
+- Hướng dẫn này giúp các thành viên làm việc nhóm hiệu quả và hiểu rõ quy trình quản lý mã nguồn.
